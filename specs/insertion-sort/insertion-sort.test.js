@@ -14,13 +14,33 @@
 */
 
 function insertionSort(nums) {
-  // code goes here
+
+  // Loop through every item starting at index 1
+  for (let i = 1; i < nums.length; i++) {
+
+    let current = nums[i]
+    let j; // initialize innerCounter
+
+    // Loop from right to left, stopping when the number is < 
+    for (j = i - 1; j >= 0 && nums[j] > current; j--) {
+
+      // Move numbers to the right
+      nums [j + 1] = nums[j];
+    }
+
+    // Insert
+    nums[j + 1] = current;
+  }
+
+  // Mutated array
+  return nums;
 }
 
 // unit tests
-// do not modify the below code
-test.skip("insertion sort", function () {
+test("insertion sort", function () {
   const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
   insertionSort(nums);
   expect(nums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+  expect(insertionSort([10])).toEqual([10]);
 });
