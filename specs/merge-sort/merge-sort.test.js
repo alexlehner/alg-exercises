@@ -6,8 +6,39 @@
   You'll need to write more than just one function
 */
 
+// Take two sorted arrays and merge them together.
+const merge = (leftArr, rightArr) => {
+  let mergedArr = [];
+
+  while(left.length && right.length) {
+    if (left[0] < right[0]) {
+      mergedArr.push(left.shift());
+    } else {
+      mergedArr.push(right.shift());
+    }
+  }
+  
+  return mergedArr.concat(left, right);
+}
+
 const mergeSort = (nums) => {
-  // code goes here
+
+  // Base case
+  if (nums.length < 2) {
+    return nums;
+  }
+
+  // break into two smaller arrays
+  const length = nums.length;
+  const middle = Math.floor(length / 2);
+  const left = nums.slice(0, middle);
+  const right = nums.slice(middle);
+
+  // Call mergeSort on left/right
+  const sortedL = mergeSort(left);
+  const sortedR = mergeSort(right);
+
+  return merge(sortedL, sortedR);
 };
 
 // unit tests
