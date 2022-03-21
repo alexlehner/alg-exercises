@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "lodash": "4.17.21",
